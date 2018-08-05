@@ -1,0 +1,17 @@
+.tag {
+    background-color: lightskyblue;
+}
+input {
+    -webkit-appearance: textfield;
+}
+.tag {
+    float: left; 
+    border-color: black;
+    border-radius: 10px;
+}
+mat-icon {
+    float: right;
+    height: 14px;
+    width: 14px;
+    padding-left: 20px;
+}

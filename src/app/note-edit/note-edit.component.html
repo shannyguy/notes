@@ -1,0 +1,30 @@
+<div>
+  <form  ng-submit="onSubmit(note)" #noteForm="ngForm" (keydown.enter)="$event.preventDefault()">
+      <div class="form_field">
+          <label for="id">Note id:</label>
+          <label type="text" name="id">{{note.id}}</label>
+        </div>
+    <div class="form_field">
+      <label for="title">Note title:</label>
+      <input [(ngModel)]="note.title" type="text" name="title">
+    </div>
+    <div class="form_field">
+      <label for="body">Note body:</label>
+      <input [(ngModel)]="note.body" type="text" name="body">
+    </div>
+      <div>
+          <div class="tags_list">
+              <div class="tag" *ngFor="let tag of note.tags">
+                {{tag.text}}
+                <mat-icon (click)="remove(tag)">x</mat-icon>
+          </div>
+              <input #newTag placeholder="New tag..." (keydown.enter)="add(newTag.value); newTag.value='';">      
+            </div>
+        </div>
+    <!-- Buttons -->
+    <div>
+      <button type="submit" (click)="onSubmit(note)" class="action_button" [routerLink]="['/notes/all']">OK</button>
+      <button type="cancel" ng-click="onCancel()" class="action_button" [routerLink]="['/notes/all']">CANCEL</button>
+    </div>
+  </form>
+</div>

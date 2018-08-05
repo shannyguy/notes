@@ -1,0 +1,12 @@
+<div class="content">
+	<div class="tags_header">
+    My Tags:
+    </div>
+    <div class="tags_list">
+        <div *ngFor="let tag of tags">
+            <div class="tag" [routerLink]="['/notes/tag=' + tag.text]">
+          {{tag.text}}
+        </div>
+    </div>
+    </div>
+</div>

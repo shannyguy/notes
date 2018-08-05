@@ -1,0 +1,42 @@
+.content {
+	width:800px;
+	margin:auto;
+}
+
+.note {
+	width: 200px;
+	float: left;
+	border: 1px solid gray;
+	margin-right: 10px;
+}
+
+.note_tile { 
+	min-height:20px;
+	padding:5px;
+	border-bottom: 1px solid gray;
+	
+}
+
+.note_body {
+	min-height: 100px;
+	padding: 5px;
+}
+#delete_note {
+	padding-right:0px;
+	float: right;
+}
+
+.important > span {
+	display: inline-block;
+	position: relative;
+	width: 1.1em;
+  }
+.not_important > span {
+	display: inline-block;
+	position: relative;
+	width: 1.1em;
+  }
+.important {
+	content: solid;
+	color: red;
+}

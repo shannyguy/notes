@@ -1,0 +1,39 @@
+<div class="content">
+	<div class="note_header">
+		<div class="note_title">
+			My Notes:	
+		</div>
+		<div class="filter_important" [routerLink]="['/notes' + extension]" (click)="updateView()">
+			{{ labelText }}
+		</div>
+		<div class="note_actions">
+			<div class="action_button" [routerLink]="['/note/new']">Add note</div>
+		</div>
+	</div>
+
+	<div class="note" *ngFor="let note of notes">
+		<div class="note_tile">
+			{{ note.title }}
+			<div id="delete_note" igxButton="raised" class="action_button" (click)="onDelete(note); snackbar.show()" [routerLink]="['/notes/all']">X</div>
+		</div>
+		<div class="note_body">
+			{{ note.body}}
+		</div>
+		<div class="note_important" value="note.important" *ngIf="note.important">
+			<div class="important" (click)="note.important=false; onUpdateImportance(note)" [routerLink]="['/notes']">
+				<span>☆</span>
+				</div>
+		</div>
+		<div class="note_important" value="note.important" *ngIf="!note.important">
+			<div class="not_important" (click)="note.important=true; onUpdateImportance(note)" [routerLink]="['/notes']">
+				<span>☆</span>
+				</div>
+		</div>
+		<div class="note_actions">
+			<div class="action_button" [routerLink]="['/note/' + note.id + '']">Edit</div>	
+		</div>
+	</div>
+	<div>
+		<igx-snackbar #snackbar message="Note deleted" [autoHide]="false" actionText="you can still undo" (onAction)="undoDeletion(); close(snackbar)" [routerLink]="['/notes/all']"></igx-snackbar>
+	</div>
+</div>
